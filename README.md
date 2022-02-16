@@ -25,3 +25,7 @@ npm run tauri dev
 1. Rust sends `bootstrap` message to JS
 1. JS fails to listen for `bootstrap` event, _it was sent before JS was ready_
 1. App fails to load, as bootstrap config is not yet ready
+
+### Quick fix
+
+[main.rs](./src-tauri/src/main.rs) has some commented code, that "fixes" the issue, by adding a timeout for the event, so JS is ready when Rust sends the event.
